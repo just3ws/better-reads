@@ -4,7 +4,7 @@ class BookTest < ActiveSupport::TestCase
   test "book model validates presence of required fields" do
     book = Book.new
     assert_not book.save
-    assert_equal [:title, :author], book.errors.as_json.keys
+    assert_equal [:author, :title], book.errors.as_json.keys.sort
   end
 
   test "book removes all linked reviews on destroy" do
